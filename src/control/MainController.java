@@ -49,6 +49,15 @@ public class MainController {
      */
     public void printLastQuery(){
         //TODO 01: siehe Kommentar
+        if(dbConnector.getErrorMessage() != null){
+            if (dbConnector.getCurrentQueryResult() != null){
+                System.out.println("Success, but no return");
+            }else{
+                int cCount = dbConnector.getCurrentQueryResult().getColumnCount();
+                int rCount = dbConnector.getCurrentQueryResult().getRowCount();
+
+            }
+        }else System.out.println(dbConnector.getErrorMessage());
     }
 
 
